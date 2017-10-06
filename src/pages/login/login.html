@@ -1,0 +1,55 @@
+<ion-header no-border>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ 'Login' | translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+    <div class="logo">
+        <img src="assets/img/appicon.png" alt="App Icon">
+    </div>
+
+    <form #loginForm="ngForm" novalidate>
+        <ion-list no-lines no-padding>
+            <ion-item>
+                <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel"
+                           spellcheck="false" autocapitalize="off" placeholder="{{ 'Your phone number' | translate }}"
+                           required>
+                </ion-input>
+            </ion-item>
+            <p [hidden]="username.valid==fase"></p>
+            <p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+                {{"Username is required" | translate}}
+            </p>
+            <ion-item>
+                <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel"
+                           placeholder="{{ 'Your password' | translate }}"
+                           required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+                {{"Password is required" | translate}}
+            </p>
+            <ion-item>
+                <ion-row>
+                    <button ion-button (click)="onLogin(loginForm)" type="submit" color="primary" primary full>{{ "Login" | translate }}
+                    </button>
+                </ion-row>
+            </ion-item>
+            <ion-row>
+                <ion-col>
+                    <button class="signup-btn" full start ion-button (click)="onSignup()" clear>{{ "Signup" | translate }}</button>
+                </ion-col>
+                <ion-col>
+                    <button class="forget-btn" full ion-button (click)="onLogin(loginForm)" clear>{{ "Forget password" | translate }}</button>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </form>
+<ion-footer>
+    <p align="center">&copy;2017 Vinnet JSC</p>
+</ion-footer>
+</ion-content>

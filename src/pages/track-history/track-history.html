@@ -1,0 +1,49 @@
+<!--
+  Generated template for the TrackHistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ "Track history" | translate}}</ion-title>
+    <ion-buttons end>
+    	<button ion-button icon-only (click)="showSearch()"><ion-icon name="search"></ion-icon></button>
+    	<button ion-button icon-only (click)="deleteHistory()"><ion-icon name="trash"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="map-page">
+  <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
+  <div id="control-pane" #ctrlPane>
+  	<ion-buttons end>
+  		<button ion-button icon-only (click)="showSearch()">
+        <ion-icon name="arrow-down" *ngIf="!collapsed"></ion-icon>
+        <ion-icon name="arrow-up" *ngIf="collapsed"></ion-icon>
+      </button>
+  	</ion-buttons>
+  	<ion-list >
+  		<ion-list-header>
+    		Header
+  		</ion-list-header>
+	  	<ion-item>
+	  		<ion-avatar><ion-icon name="share"></ion-icon></ion-avatar>
+	  		<ion-label>GT03A</ion-label>
+	  	</ion-item>
+	  	<ion-item>
+	  		<ion-label>From</ion-label>
+	  		<ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="today"></ion-datetime>
+	  	</ion-item>
+	  	<ion-item>
+	  		<ion-label>To</ion-label>
+	  		<ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="today"></ion-datetime>
+	  	</ion-item>
+      <button ion-button full>Filter</button>
+      
+  </ion-list>
+  </div>
+</ion-content>

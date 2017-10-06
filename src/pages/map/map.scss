@@ -1,0 +1,56 @@
+
+page-map ion-content {
+  background: rgb(229, 227, 223);
+}
+
+page-map {
+  #map_canvas {
+    height: 500px;
+    width: 320px;
+    background-color : transparent;
+  }
+}
+
+page-map ion-content {
+  background: rgb(229, 227, 223);
+}
+
+page-map #map_canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 150ms ease-in
+}
+
+page-map #map_canvas.show-map {
+  opacity: 1;
+}
+
+ion-app._gmaps_cdv_ .nav-decor{
+  background-color: transparent !important;
+}
+
+page-map .fab {
+  contain: layout;
+}
+
+ion-avatar img {
+  border-radius:50%;
+}
+
+page-map button[ion-fab] {
+  overflow: visible;
+  position: relative;
+
+  ion-label {
+    position: absolute;
+    top: -8px;
+    right: 40px;
+
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,17 @@
+page-track-history {
+	#control-pane {
+		width:100%;
+		background: #cacaca;
+		position:absolute;
+		left:0;
+		bottom:0;
+	}
+	#control-pane.goUp {
+		bottom: 0;
+		transition: bottom 1s;
+	}
+	#control-pane.goDown {
+		bottom: -200px;
+		transition: bottom 1s;
+	}
+}

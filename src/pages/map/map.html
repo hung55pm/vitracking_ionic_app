@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Map</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openTrackHistory()">
+        <ion-icon name="git-network"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="map-page">
+  <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
+
+  <div style="position:absolute;left:1em;bottom:1em;">
+    <div>
+      <button ion-button round icon-only strong color="danger">
+        <ion-icon name="warning"></ion-icon>
+      </button>
+    </div>
+    <div>
+      <button ion-button round icon-only strong color="secondary">
+        <ion-icon name="recording"></ion-icon>
+      </button>
+    </div>
+    <div>
+      <button ion-button round icon-only strong color="secondary">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <div style="position:absolute;right:1em;bottom:1em;">
+    <button ion-button round icon-only color="light">
+      <ion-icon name="call"></ion-icon>
+    </button>
+  </div>
+
+  <ion-fab top right #fab>
+    <button ion-fab>
+        <ion-avatar>
+            <img *ngIf="currentDev!=null && currentDev.img!=null" src="{{ currentDev.img }}"/>
+            <img *ngIf="currentDev==null || currentDev.img==null" src="assets/img/icon/iwatch.png"/>
+        </ion-avatar>
+    </button>
+    <ion-fab-list side="bottom">
+        <button ion-fab *ngFor="let dev of devList" (click)="switchDevice(dev.id, fab)">
+            <ion-avatar>
+                <img *ngIf="dev.img" src="{{ dev.img }}"/>
+                <img *ngIf="dev.img==null" src="assets/img/icon/iwatch.png"/>
+            </ion-avatar>
+            <ion-label *ngIf="dev.info.devName!=null" >{{ dev.info.devName }}</ion-label>
+            <ion-label *ngIf="dev.info.devName==null">{{ dev.id }}</ion-label>
+        </button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

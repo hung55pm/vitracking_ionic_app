@@ -1,0 +1,12 @@
+{
+  "name": "ViTracking",
+  "app_id": "",
+  "type": "ionic-angular",
+<<<<<<< HEAD
+  "integrations": {}
+=======
+  "integrations": {
+    "cordova": {}
+  }
+>>>>>>> d9ee4633a9861c13856f8025c672915983d41a4a
+}
